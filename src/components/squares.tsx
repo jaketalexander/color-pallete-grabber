@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Color } from "../App";
 
 interface SquaresProps {
