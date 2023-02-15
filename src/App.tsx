@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
+import Squares from "./components/squares";
 
-interface Color {
+export interface Color {
   name: string;
   hex: string;
 }
@@ -20,28 +21,10 @@ const App: React.FC = () => {
     undefined
   );
 
-  const handleClick = (color: Color) => {
-    setSelectedColor(color);
-  };
-
   return (
     <div>
       <h1>Color Palette</h1>
-      <div style={{ display: "flex" }}>
-        {colors.map((color) => (
-          <div
-            key={color.hex}
-            style={{
-              backgroundColor: color.hex,
-              width: "100px",
-              height: "100px",
-              margin: "10px",
-              cursor: "pointer",
-            }}
-            onClick={() => handleClick(color)}
-          />
-        ))}
-      </div>
+      <Squares colors={colors} setSelectedColor={setSelectedColor} />
       {selectedColor && (
         <div>
           <h2>Selected Color</h2>
